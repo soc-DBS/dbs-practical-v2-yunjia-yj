@@ -23,6 +23,7 @@ model course {
   labFee    Decimal? @map("lab_fee") @db.Decimal(7, 2)
 
   student    student[]
+  department department @relation("DepartmentCourses", fields: [offeredBy], references: [deptCode])
 }
 
 model department {
@@ -34,6 +35,8 @@ model department {
   budget           Decimal?  @db.Decimal(9, 2)
   expenditure      Decimal?  @db.Decimal(9, 2)
   hodApptDate      DateTime? @map("hod_appt_date") @db.Date
+
+  courses       course[] @relation("DepartmentCourses")
 }
 
 model module {
