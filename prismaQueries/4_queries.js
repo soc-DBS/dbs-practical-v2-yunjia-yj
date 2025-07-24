@@ -8,8 +8,6 @@ function getAllStaff() {
 }
 
 /** Section A: Basic Queries */
-
-
 function getHodInfo() {
   return prisma.department.findMany({
     select: {
@@ -133,12 +131,6 @@ const getStaffAndDependents = () => {
 };
 
 
-// const getDepartmentCourseStudentDob = () => {
-//     return prisma.department.findMany({
-// 		//TODO: Implement the query
-		
-//     });
-// };
 const getDepartmentCourseStudentDob = () => {
   return prisma.department.findMany({
     where: {
@@ -166,7 +158,7 @@ const getDepartmentCourseStudentDob = () => {
               dob: true
             },
             orderBy: {
-              dob: 'asc'  // ascending DOB means younger first, so descending age
+              dob: 'asc' 
             }
           }
         },
